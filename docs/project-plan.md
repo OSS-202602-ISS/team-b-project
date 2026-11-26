@@ -1,61 +1,38 @@
 # Project Plan
 
-Required deliverable, written in Chapter 11 and updated as things change.
-Keep it to this one page.
-
-In Chapter 11, copy your team's `[Team plan]` issue (in `practice-pr`) into
-this file:
-
-| `[Team plan]` issue | This file |
-|---|---|
-| Topic | 1. The tool - One sentence |
-| Track | 1. The tool - Track |
-| Input / Process / Output | 2. Scope |
-| Libraries (whitelist only) | 3. Open source we plan to use |
-| Roles | 4. Team and roles |
-
 ## 1. The tool
 
-- **Name**: \<project name\>
-- **One sentence**: \<what it does, for whom\>
-- **Category**: design / development / management / operations automation / data processing / security
-- **Track**: A only / A + B (keep one)
-  - A = required for every team: a small tool built with whitelist libraries (fill the two blanks)
-  - B = challenge, optional: Track A plus one extension of your own tool
+- **Name**: Library Book Return Tracker
+- **One sentence**: A tool that reads a library book list, identifies borrowed and overdue books, and reports which books need to be returned.
+- **Category**: management
+- **Track**: A only
 
 ## 2. Scope - input, one processing step, output
 
 | | Our project |
 |---|---|
-| **Input** | \<file, values, or API response - be specific\> |
-| **Processing step** | \<the one decision or calculation the tool makes\> |
-| **Output** | \<terminal table / Excel file / log file - what the user sees\> |
+| **Input** | `books.csv` (book_id, title, author, status, due_date) |
+| **Processing step** | Find borrowed books and identify which have passed their due dates |
+| **Output** | A terminal table showing borrowed and overdue books, and `library_report.xlsx` |
 
-**Definition of done**: one run command, one input, one output result.
-Anything beyond that is track B, not the baseline.
+**Definition of done**: Run the program with one command, read `books.csv`, identify borrowed and overdue books, and generate the terminal table and Excel report.
 
 ## 3. Open source we plan to use
 
 | Library | Why we need it | On the whitelist? |
 |---|---|---|
-| \<library\> | \<reason\> | yes / ask instructor |
-
-One row for each library. For example: `| pandas | reads servers.csv | yes |`
-
-Libraries not covered in class have a recipe card - read it before you add one.
+| pandas | Reads and filters book information from `books.csv` | yes |
+| rich | Displays book information in a formatted terminal table | yes |
+| openpyxl | Exports the book report to an Excel file | yes |
 
 ## 4. Team and roles
 
-Write GitHub usernames (for example @gildong-hong). In a team of two or three,
-one person can take two roles. Roles can rotate later. If roles change, update
-this table.
-
 | Role | Who |
 |---|---|
-| PM | |
-| Developer | |
-| Documentation | |
-| Reviewer | |
+| PM | @monkeypradip23 |
+| Developer | @Rima6 |
+| Documentation | @prismaa07 |
+| Reviewer | @shresthaissu2005-tech |
 
 ## 5. Schedule
 
@@ -70,4 +47,4 @@ this table.
 
 | What could go wrong | What we will do about it |
 |---|---|
-| \<e.g. our input file has empty cells or extra columns\> | \<e.g. shrink to one column and validate it\> |
+| The CSV file may contain missing or incorrect due dates or book statuses | Check the required columns and validate the data before processing |
