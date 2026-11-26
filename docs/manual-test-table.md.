@@ -1,0 +1,9 @@
+# Manual Test Table
+
+| Test case | Input | Expected result | Actual result | Status |
+|---|---|---|---|---|
+| Available book | status = available | Not listed as borrowed | Pending | Not tested |
+| Borrowed book | status = borrowed | Listed in report | Pending | Not tested |
+| Overdue book | due date is in the past | Marked overdue | Pending | Not tested |
+| Future due date | due date is in the future | Not marked overdue | Pending | Not tested |
+| Missing due date | Empty due_date | Handled safely | Pending | Not tested |
