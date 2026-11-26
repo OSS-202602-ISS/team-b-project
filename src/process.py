@@ -1,4 +1,3 @@
-
 """The one file your team is expected to change first.
 
 This module holds the *processing step* of the tool:
