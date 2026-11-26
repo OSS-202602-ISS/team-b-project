@@ -1,0 +1,7 @@
+
+book_id,title,author,status,due_date
+B001,Python Basics,John Smith,borrowed,2026-11-20
+B002,Data Science,Mary Lee,available,
+B003,Web Development,David Kim,borrowed,2026-11-25
+B004,Machine Learning,Sarah Park,borrowed,2026-11-15
+B005,Database Systems,Alex Brown,available,
