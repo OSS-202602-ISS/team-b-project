@@ -46,9 +46,7 @@ def filter_records(records: list[dict], min_score: int) -> list[dict]:
         * `tests/test_process.py` already checks this function - run
           `python -m pytest` and make the failing test pass.
     """
-    raise NotImplementedError(
-        "filter_records() is blank 1 of 2 - implement it in src/process.py"
-    )
+    return [r for r in records if r["score"] >= min_score]
 
 
 def summarize(records: list[dict]) -> dict:
@@ -70,6 +68,19 @@ def summarize(records: list[dict]) -> dict:
           error.
         * `max(records, key=...)` and `sum(...) / len(...)` are all you need.
     """
-    raise NotImplementedError(
-        "summarize() is blank 2 of 2 - implement it in src/process.py"
-    )
+    if not records:
+        return {
+            "count": 0,
+            "highest": None,
+            "average": 0.0
+        }
+
+    count = len(records)
+    highest = max(records, key=lambda r: r["score"])
+    average = round(sum(r["score"] for r in records) / count, 1)
+
+    return {
+        "count": count,
+        "highest": highest,
+        "average": average
+    }

@@ -1,138 +1,87 @@
-# \<PROJECT NAME - fill this in\>
+# Library Book Return Tracker
 
-> One sentence: what does your tool do, and for whom?
-> Example: "Reads a server check list and reports which items need attention."
+A tool that reads a library book list, checks which books are available or borrowed, and reports books that need to be returned.
 
-**Team \<letter\>** · \<GitHub usernames\> · Track: **A only** / **A + B** (keep one)
-
-This repository was made for your team from the course template. Everything
-marked `TODO` or `<...>` is yours to replace.
-
----
+**Team B** · Track: **A only**
 
 ## 1. What this tool does
 
-Every project in this course has the same three parts - **input → one processing step → output**:
+This project helps librarians identify borrowed books and books that are overdue for return.
 
-| Stage | In this template | In your project |
-|---|---|---|
-| Input | `data/sample_input.csv` + `config.yaml` | \<what your tool reads\> |
-| Process | `src/process.py` (two functions) | \<the one thing your tool decides or calculates\> |
-| Output | table in the terminal, optional Excel file | \<what your user gets back\> |
+| Stage | Description |
+|---|---|
+| Input | `books.csv` containing book ID, title, author, status, and due date |
+| Process | Checks borrowed books and identifies overdue books |
+| Output | Displays a report in the terminal and saves an Excel report |
 
-## 2. Run it
+## 2. Technologies
 
-**Windows (lab PC): use a cmd terminal.** PowerShell can block `activate` with a
-red error. In VS Code: **Terminal › New Terminal**. In the terminal panel, click
-the arrow next to **+** and choose **Command Prompt**. The prompt must not start
-with `PS`. Does it start with `PS`? Type `cmd` and press Enter.
+- Python
+- pandas
+- rich
+- openpyxl
 
-Type these in cmd:
+## 3. How to install and run
 
-```bat
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-python -m src.main
-```
-
-After `.venv\Scripts\activate`, the prompt starts with `(.venv)`. Activate
-`.venv` in every new terminal. A new terminal starts with `.venv` not active.
-
-**macOS / Linux:**
+Install the required libraries:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python -m src.main
+python -m pip install -r requirements.txt
 ```
 
-The same run with every option:
+Run the automated tests:
 
 ```bash
-python -m src.main --input data/sample_input.csv --config config.yaml --excel output/results.xlsx
-```
-
-Right after you clone this repository, the run stops with a message. The message says that the blanks
-are not filled in yet. This is expected. See section 3.
-
-To use a secret (an API key, for example), copy `env.example` to a file named
-`.env`, put the real value there, and read it with `python-dotenv`. `.env` is
-git-ignored; never commit it. See the `python-dotenv` recipe card.
-
-## 3. Your two blanks
-
-Open [`src/process.py`](src/process.py). Two functions raise `NotImplementedError`:
-
-1. `filter_records(records, min_score)` - keep the records worth reporting
-2. `summarize(records)` - count, highest, average
-
-The tests in [`tests/test_process.py`](tests/test_process.py) are the
-specification. Run them:
-
-```bat
 python -m pytest
 ```
 
-The first run shows `2 failed, 1 passed`. Your goal: `3 passed`.
+Run the program:
 
-Nothing else in the template has to change for track A. When both functions are
-done, `python -m src.main` prints a table and the summary line.
-
-## 4. Difficulty tracks
-
-- **Track A (required for every team)** - a small tool built with whitelist
-  libraries. Fill the two blanks. Use your own input file and config. Rename
-  things to match your topic. This is a complete project.
-- **Track B (challenge, optional)** - Track A plus one extension of your own
-  tool. For example: a second output format, one more whitelist library that the
-  template does not use (`requests` for an API step), input validation with
-  clear error messages, or a second processing rule with its own tests.
-
-## 5. Repository map
-
-```
-config.yaml            settings your tool reads at start-up
-data/                  sample input (replace with your own)
-src/main.py            the one command that runs the tool
-src/io_utils.py        input/output helpers - already written for you
-src/process.py         >>> your two blanks <<<
-tests/test_process.py  the bundled pytest example
-docs/project-plan.md   required: topic, scope, roles, schedule
-docs/manual-test-table.md  required: what you ran and what happened
-THIRD_PARTY.md         required: the open source you used, and its licenses
-AI_USAGE.md            required if you used AI (you almost certainly did)
-CONTRIBUTING.md        how this team works: branches, commits, reviews
+```bash
+python -m src.main
 ```
 
-## 6. Team rules (from the syllabus)
+## 4. Processing functions
 
-- **No direct pushes to `main`.** `main` is protected. GitHub rejects a direct
-  push to `main`. Work on a branch `feature/<name>-<task>`. Open a pull request.
-  One teammate approves it. This teammate is not the author of the pull request.
-  (GitHub does not let you approve your own pull request.) Then the author
-  clicks **Merge pull request**. See `CONTRIBUTING.md`.
-- **You must be able to explain every line you submit**, including lines an AI
-  wrote. Log AI use in `AI_USAGE.md`.
-- **No secrets, personal data, or internal school material** in this repository.
+The `src/process.py` module contains the processing functions:
 
-## 7. Stuck?
+- `format_label()` – formats book labels for display.
+- `filter_records()` – identifies records that need attention.
+- `summarize()` – summarizes the processed book records.
 
-Ask for help in this order: ① ask AI → ② read the recipe card for the library
-and the course FAQ → ③ ask your team → ④ ask the instructor. A recipe card shows
-the install command, a short example and the one common error for each library.
+## 5. Team members
 
-## 8. Submission checklist
+- Rima6
+- shresthaissu2005-tech
+- prismaa07
+- monkeypradip23
 
-- [ ] Working source code, run with a single command
-- [ ] `README.md` updated - what it does, how to run it, with an example
-- [ ] `LICENSE` - team name and year filled in
-- [ ] `requirements.txt` - pinned versions
-- [ ] `THIRD_PARTY.md` - every library you used, with its license
-- [ ] `AI_USAGE.md` - if you used AI
-- [ ] `docs/project-plan.md`
-- [ ] `docs/manual-test-table.md` - execution results
-- [ ] 3+ issues, 3+ team pull requests, 1+ pull request per person
-- [ ] 1+ round of peer review among teammates
-- [ ] `python -m pytest` passes
+## 6. Project structure
+
+- `src/` – Python source code
+- `tests/` – automated tests
+- `data/` – sample input data
+- `docs/` – project documentation
+- `config.yaml` – project configuration
+- `requirements.txt` – required Python libraries
+- `AI_USAGE.md` – AI usage record
+- `THIRD_PARTY.md` – third-party library information
+
+## 7. Testing
+
+Run the tests using:
+
+```bash
+python -m pytest
+```
+
+The processing functions should pass all automated tests.
+
+## 8. Course requirements
+
+- Work on a feature branch, not directly on `main`.
+- Submit changes through pull requests.
+- Get a teammate to review your pull request.
+- Explain every line of code submitted.
+- Record AI assistance in `AI_USAGE.md`.
+- Do not commit passwords, API keys, or personal information.
