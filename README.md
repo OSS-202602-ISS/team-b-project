@@ -21,7 +21,7 @@ This project helps librarians identify borrowed and overdue books.
 - rich
 - openpyxl
 
-## 3. How to run
+## 3. How to install and run
 
 Install dependencies:
 
@@ -45,31 +45,18 @@ python -m src.main
 
 The `src/process.py` module contains:
 
-- `format_label()` – formats book labels.
-- `filter_records()` – filters records according to the configured score threshold.
+- `format_label()` – formats record labels.
+- `filter_records()` – filters records according to the configured minimum score.
 - `summarize()` – calculates the count, highest score, and average score.
 
-## 5. Team
+## 5. Team members
 
 - Rima6
 - shresthaissu2005-tech
 - prismaa07
 - monkeypradip23
 
-## 6. Project files
+## 6. Project structure
 
 - `src/` – Python source code
-- `tests/` – automated tests
-- `data/` – sample input data
-- `docs/` – project documentation
-- `AI_USAGE.md` – AI usage record
-
-## 7. Testing
-
-Run:
-
-```bash
-python -m pytest
-```
-
-Current result: **3 tests passed**.
+-
