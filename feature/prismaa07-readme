@@ -1,0 +1,25 @@
+# Library Book Return Tracker
+
+## About
+This tool helps librarians identify borrowed and overdue library books.
+
+## Input
+The program reads `data/books.csv`.
+
+Required columns:
+- book_id
+- title
+- author
+- status
+- due_date
+
+## Features
+- Identifies borrowed books.
+- Detects overdue books.
+- Displays a formatted report.
+- Exports results to Excel.
+
+## How to run
+Install the required dependencies and run:
+
+`python -m src.main`
